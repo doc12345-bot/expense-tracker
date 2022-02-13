@@ -4,7 +4,11 @@ const desc = document.getElementById("desc");
 const trackerTable = document.getElementById("tracked");
 const submit = document.getElementById("submit");
 
-submit.addEventListener("click", function(){
+function submitBtn(){
+    if (amount.value == ""|| date.value == ""|| desc.value == ""){
+        alert("Please enter more information.")
+        return
+    }
     var newRow = trackerTable.insertRow(-1)
     var newAmount = newRow.insertCell("0")
     var newDate = newRow.insertCell("1")
@@ -20,4 +24,11 @@ submit.addEventListener("click", function(){
     amount.value = "";
     date.value = "";
     desc.value = "";
-})
+};
+
+submit.addEventListener("click", submitBtn());
+
+document.addEventListener("keydown", function(event){
+    if(event.key == "Enter")
+    submitBtn();
+});
