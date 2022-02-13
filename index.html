@@ -5,20 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <div id="header">
         <h1>Expense Tracker</h1>
         <div id="inputs">
             <p>Amount:</p>
-            <input type="text">
+            <input type="number" id="expense">
             <p>Date:</p>
-            <input type="text">
+            <input type="date" id="date">
             <p>Description:</p>
-            <input type="text">
-            <button id="submit">Submit</button>
+            <input type="text" id="desc">
+            <button id="submit" autofocus>Submit</button>
+            <button id="clear">Clear All</button>
         </div>
+    </div>
+
+    <div id="list">
+        <table id="tracked">
+            <tr>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Description</th>
+                <th id="deleteBtn">___</th>
+            </tr>
+
+        </table>
     </div>
 
     <script src="script.js"></script>
