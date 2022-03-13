@@ -14,13 +14,17 @@ function submitBtn(){
     var newAmount = newRow.insertCell("0")
     var newDate = newRow.insertCell("1")
     var newDesc = newRow.insertCell("2");
-    var delBtn = newRow.insertCell("3");
+    var del = newRow.insertCell("3");
+    var delBtn = document.createElement("input");
 
     newAmount.textContent = amount.value;
     newDate.textContent = date.value;
     newDesc.textContent = desc.value;
-    delBtn.textContent = "X";
-    delBtn.setAttribute("class", "delete-button")
+    delBtn.value = "X";
+    delBtn.setAttribute("class", "delete-button");
+    delBtn.type = "button";
+    del.appendChild(delBtn);
+    delBtn.onclick = deleteButton();
 
     amount.value = "";
     date.value = "";
@@ -41,6 +45,8 @@ function clearAll() {
         trackerTable.deleteRow(i);
     }
 };
+
+function deleteButton() {trackerTable.deleteRow};
 
 clear.addEventListener("click", function(){
     clearAll();
